@@ -7,10 +7,7 @@ import { PastaComponent } from './pasta/pasta.component';
 import { DessertComponent } from './dessert/dessert.component';
 
 export const routes: Routes = [
-   {
-    path:'add-menu',
-    component:MenuComponent
-   },
+
    {
       path:'add-salad',
       component:SaladComponent
