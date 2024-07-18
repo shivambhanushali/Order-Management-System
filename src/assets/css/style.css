@@ -2334,12 +2334,12 @@ textarea.form-input {
 
 .form-label {
 	position: absolute;
-	top: 30px;
-	left: 0;
+	top: 30%;
+	left: 30%;
 	right: 0;
 	padding-left: 25px;
 	padding-right: 25px;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: 400;
 	line-height: 26px;
 	letter-spacing: .075em;
@@ -2352,7 +2352,7 @@ textarea.form-input {
 }
 
 .form-label.focus {
-	opacity: 0;
+	opacity: 100%;
 }
 
 .form-label.auto-fill {

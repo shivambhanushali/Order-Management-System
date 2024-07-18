@@ -1777,9 +1777,10 @@ select.form-control:focus::-ms-value {
 }
 
 .col-form-label {
-	padding-top: calc(25px + 1px);
+	padding-top: 220px;
 	padding-bottom: calc(25px + 1px);
 	margin-bottom: 0;
+
 	line-height: 1.85;
 }
 
