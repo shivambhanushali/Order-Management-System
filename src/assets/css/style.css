@@ -2350,6 +2350,11 @@ textarea.form-input {
 	will-change: transform;
 	transform: translateY(-50%);
 }
+article:hover{
+  cursor: pointer;
+}
+
+
 
 .form-label.focus {
 	opacity: 100%;
