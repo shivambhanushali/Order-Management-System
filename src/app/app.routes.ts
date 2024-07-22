@@ -5,6 +5,7 @@ import { PizzaComponent } from './pizza/pizza.component';
 import { BurgerComponent } from './burger/burger.component';
 import { PastaComponent } from './pasta/pasta.component';
 import { DessertComponent } from './dessert/dessert.component';
+import { DrinkComponent } from './drink/drink.component';
 
 export const routes: Routes = [
 {
@@ -15,6 +16,11 @@ export const routes: Routes = [
       path:'add-salad',
       component:SaladComponent
    },
+   {
+    path:'add-drink',
+    component:DrinkComponent
+ },
+
    {
       path:'add-pasta',
       component:PastaComponent
@@ -30,5 +36,5 @@ export const routes: Routes = [
    {
       path:'add-pizza',
       component:PizzaComponent
-   },
+   }
 ];
