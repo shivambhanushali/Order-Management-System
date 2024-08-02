@@ -14,13 +14,9 @@ import { DetailComponent } from "./detail/detail.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, LoaderComponent, FooterComponent, HeaderComponent, MenuComponent, SaladComponent, PizzaComponent, BurgerComponent, DessertComponent, DrinkComponent, PastaComponent, DetailComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Order Management System';
-
-
 }

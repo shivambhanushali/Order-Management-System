@@ -6,7 +6,7 @@ import { BurgerComponent } from './burger/burger.component';
 import { PastaComponent } from './pasta/pasta.component';
 import { DessertComponent } from './dessert/dessert.component';
 import { DrinkComponent } from './drink/drink.component';
-
+import { HttpClientModule } from '@angular/common/http';
 export const routes: Routes = [
 {
   path:'',
