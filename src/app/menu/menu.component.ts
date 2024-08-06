@@ -1,16 +1,36 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MenuService } from './menu.service';
+import { PathUrl } from '../../shared/constant/pathUrl';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { menuModel } from '../../shared/model/menu.model';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-menu',
+  standalone : true,
+  imports : [RouterLink,RouterLinkActive,HttpClientModule,CommonModule],
+  providers :[PathUrl],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-    constructor(private menuService:MenuService){}
+    menuList:menuModel[]=[]
+    constructor(private menuService:MenuService, private httpClient : HttpClient,private router:Router){}
     ngOnInit(){
-      this.menuService.getMenu().subscribe((res : any)=> {
-        console.log(res)
-      })
+       this.menuService.getMenu().subscribe((res:any)=>{
+        this.menuList=res;
+        // console.log(this.menuList)
+      });
     }
+    getMenuDetail(menu:any){
+      // const navigationExtras = {
+      //   state: { id: menuid },
+      //   queryParams: { sort: 'asc' },
+      //   fragment: 'anchor'
+      // }
+      this.router.navigate(['menudetail'], { state: { menu: menu } });
+      ;
+    // this.router.navigate([`/menudetail/${menuid}`])
+    }
+
 }
