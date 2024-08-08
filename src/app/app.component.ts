@@ -5,11 +5,7 @@ import { MenudetailComponent } from './menudetail/menudetail.component';
 import { FormControl } from '@angular/forms';
 
 export class MyComponent {
-  formData = new FormControl({
-    name: '',
-    email: '',
-    message: ''
-  });
+  
 }
 @Component({
   selector: 'app-root',

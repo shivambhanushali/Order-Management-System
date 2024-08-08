@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MenudetailService } from './menudetail.service';
+import { ActivatedRoute, Router,RouterLink, RouterLinkActive, RouterOutlet  } from '@angular/router';
 import { menuDetailModel } from '../../shared/model/menudetail.model';
 import { CommonModule } from '@angular/common';
+import { MenudetailService } from './menudetail.service';
+import { PathUrl } from '../../shared/constant/pathUrl';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-menudetail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [RouterLink,RouterLinkActive,CommonModule,HttpClientModule],
+  providers :[PathUrl],
   templateUrl: './menudetail.component.html',
   styleUrl: './menudetail.component.scss'
 })
 export class MenudetailComponent {
+  ngOnInit(){
+    this.menuDetailList;
+  }
+  
   menuDetailList: menuDetailModel[] = [];
   header : string ="";
   constructor(private route: ActivatedRoute, private router: Router, private menuDetailService: MenudetailService) {
@@ -25,8 +32,8 @@ export class MenudetailComponent {
     }
     console.log(this.header)
     this.menuDetailService.getId(param.id).subscribe((res: any) => {
-      this.menuDetailList = res
-      console.log(this.menuDetailList)
+       this.menuDetailList = res
+      // console.log(this.menuDetailList)
     });
   }
 }

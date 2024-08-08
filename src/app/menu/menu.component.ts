@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent {
     menuList:menuModel[]=[]
-    constructor(private menuService:MenuService, private httpClient : HttpClient,private router:Router){}
+    constructor(private menuService:MenuService,private router:Router){}
     ngOnInit(){
        this.menuService.getMenu().subscribe((res:any)=>{
         this.menuList=res;
@@ -23,14 +23,7 @@ export class MenuComponent {
       });
     }
     getMenuDetail(menu:any){
-      // const navigationExtras = {
-      //   state: { id: menuid },
-      //   queryParams: { sort: 'asc' },
-      //   fragment: 'anchor'
-      // }
       this.router.navigate(['menudetail'], { state: { menu: menu } });
-      ;
-    // this.router.navigate([`/menudetail/${menuid}`])
     }
 
 }

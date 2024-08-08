@@ -12,6 +12,10 @@ export class MenudetailService {
     var data= this.httpClient.get(this.pathUrl.getMenuDetailByMenuId+id);
     console.log(this.pathUrl)
     return data;
-  
+  }
+  addMenuData(body:any ){
+    var data= this.httpClient.post(this.pathUrl.addMenuData,body);
+    console.log(this.pathUrl)
+    return data;
   }
 }

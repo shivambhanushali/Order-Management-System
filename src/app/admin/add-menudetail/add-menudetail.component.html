@@ -1,1 +1,45 @@
-<p>add-menudetail works!</p>
+<h2 mat-dialog-title>Add Menu</h2>
+<mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+  <form [formGroup]="myForm">
+    <mat-form-field>
+      <mat-label>
+        Title:</mat-label>
+      <input matInput formControlName="title" placeholder="Enter New Item" required type="text">
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Price:
+      </mat-label>
+      <input matInput formControlName="price" placeholder="Enter Price" type="number" required>
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Image Url:
+      </mat-label>
+      <input matInput formControlName="imageUrl" placeholder="Enter Image Url" type="text" required>
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Menu Type</mat-label>
+      <mat-select formControlName="menuId">
+        <!-- <mat-option >Hello</mat-option> -->
+        @for (menu of menuDetail; track menu) {
+          <mat-option [value]="menu.id">{{menu.title}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <button type="submit">Send</button> -->
+  </form>
+  <!-- <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="animal" />
+  </mat-form-field>  -->
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close] (click)="saveDetail()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

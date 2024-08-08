@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PathUrl } from '../../shared/constant/pathUrl';
 import { HttpClient } from '@angular/common/http';
-import { menuModel } from '../../shared/model/menu.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +8,14 @@ import { menuModel } from '../../shared/model/menu.model';
 export class MenuService {
 
   constructor(private httpClient: HttpClient, private pathUrl: PathUrl) { }
+  ngOnInit() {
+    this.getMenuDetail();
+  }
   getMenu(): any {
-    // console.log(this.pathUrl.getMenu)
-    var data= this.httpClient.get(this.pathUrl.getMenu);
-    //  console.log(this.pathUrl)
+    var data = this.httpClient.get(this.pathUrl.getMenu);
     return data;
-    // .subscribe((res: any) => {
-    //  return res;
-    // });
+  }
+  getMenuDetail() {
+    return this.httpClient.get(this.pathUrl.getMenuDetail)
   }
 }

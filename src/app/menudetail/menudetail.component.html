@@ -1,6 +1,6 @@
 <section class="section section-lg bg-default">
     <div class="container">
-      <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Select The {{header}}</span></h3>
+      <h3 id="header" class="oh-desktop"><span class="d-inline-block wow slideInUp">Select The {{header}}</span></h3>
       <div   class="row row-lg row-30">
         <div *ngFor="let menuDetail of menuDetailList" class="col-sm-6 col-lg-4 col-xl-3">
           <!-- Product-->
@@ -8,9 +8,9 @@
            <div class="product-figure"> <img style="height: 180px ;width: 200px;" src='{{menuDetail.imageUrl}}' alt='{{menuDetail.imageUrl}}' width="190" height="200"/>
            </div>
             <div class="product-content">
-            <div class="product-rating"><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star"></span><span class="mdi mdi-star text-gray-13"></span>
+            <div class="product-rating">
             </div>
-            <h6 class="product-title">{{menuDetail.title}}</h6>
+            <h6 class="product-title" style="margin-top: 10%;font-size: x-large;margin-left: 5%;">{{menuDetail.title}}</h6>
             <div class="product-price-wrap">
               <div class="product-price">-/{{menuDetail.price}}₹</div>
             </div>

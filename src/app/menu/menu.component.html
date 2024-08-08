@@ -2,7 +2,7 @@
   <!-- What We Offer-->
   <section class="section section-md bg-default">
     <div class="container">
-      <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Menu</span></h3>
+      <h3 id="ourmenu" class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Menu</span></h3>
       <div  class="row row-md row-30">
          <div *ngFor="let menu of menuList"class="col-sm-6 col-lg-4">
           <div class="oh-desktop">
@@ -11,8 +11,8 @@
          
               <div class="services-terri-figure"><img src='{{menu.imageUrl}}' alt='{{menu.id}}' />
               </div>
-              <div class="services-terri-caption"><span class="services-terri-icon linearicons-leaf"></span>
-                <h5 class="services-terri-title">{{menu.title}}</h5>
+              <div class="services-terri-caption">
+                <h3 id="menutitle" class="services-terri-title">{{menu.title}}</h3>
               </div>
             </article>
           </div>

@@ -8,3 +8,4 @@ export interface menuModel{
     isdeleted :Boolean
     imageUrl: string
 }
+
