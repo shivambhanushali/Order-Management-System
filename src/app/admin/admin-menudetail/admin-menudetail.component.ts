@@ -13,10 +13,12 @@ import {
   MatDialogClose,
   MatDialogContent,
   MatDialogRef,
-  MatDialogTitle, MatDialogModule
+  MatDialogTitle, MatDialogModule,
 } from '@angular/material/dialog';
 import { MenuService } from '../../menu/menu.service';
 import { MenudetailService } from '../../menudetail/menudetail.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DeleteMenudetailComponent } from '../delete-menudetail/delete-menudetail.component';
 @Component({
   selector: 'app-admin-menudetail',
   standalone: true,
@@ -24,7 +26,7 @@ import { MenudetailService } from '../../menudetail/menudetail.service';
     MatIconModule, MatDialogTitle, MatDialogModule,
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose,MatIconModule],
+    MatDialogClose, MatIconModule, MatTooltipModule],
   providers: [
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: {} },
@@ -33,50 +35,44 @@ import { MenudetailService } from '../../menudetail/menudetail.service';
   styleUrl: './admin-menudetail.component.scss',
 })
 export class AdminMenudetailComponent {
-  ngOnInit(){
+  ngOnInit() {
     this.getMenudetail();
   }
-  displayedColumns: string[] = ['title', 'price'];
+  displayedColumns: string[] = ['title', 'price', 'edit', 'delete'];
   // dataSource = ELEMENT_DATA;/
   menuDetailList: menuDetailModel[] = [];
   readonly dialog = inject(MatDialog);
   constructor(
-    private menuService: MenuService,private  menuDetailService: MenudetailService,
+    private menuService: MenuService, private menuDetailService: MenudetailService,
     public dialogRef: MatDialogRef<AddMenudetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public dialogData: any
-  ) {
-
-    // this.menuDetailService.getMenuDetail().subscribe((res: any) => {
-    //   this.menuDetailList = res
-    //   console.log(this.menuDetailList)
-    // });
-
-  }
-  // menuMenuIdByNest(menu:any)
-  // }
-
-
-  openDialog(): void {
+    @Inject(MAT_DIALOG_DATA) public dialogData: any){}
+  openDialog(element: any =null): void {
+    // console.log(element)
     const dialogRef = this.dialog.open(AddMenudetailComponent, {
-      data: {},
+      data: { element },
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if (result !== undefined) {
-        // this.animal.set(result);
-      }
+      this.getMenudetail();
     });
   }
+  openDeleteDialog(element: any =null): void {
+    // console.log(element)
+    const dialogRef = this.dialog.open(DeleteMenudetailComponent, {
+      data: { element },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getMenudetail();
+    });
+  }
+  
   getMenudetail() {
     this.menuService.getMenuDetail().subscribe((res: any) => {
-      this.menuDetailList=res;
-    // console.log(res)
+      this.menuDetailList = res;
+      // console.log(res)
     })
-  }
-  getMenuTitle(id : any){
+  } 
+  getMenuTitle(id: any) {
     console.log(id)
     return "test"
   }
 }
-

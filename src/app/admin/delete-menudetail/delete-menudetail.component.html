@@ -1,0 +1,7 @@
+ <mat-dialog-content>
+  <p>Do you want to delete this from menu??</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close] (click)="deleteData()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

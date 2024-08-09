@@ -3,12 +3,12 @@
   <section class="section section-md bg-default">
     <div class="container">
       <h3 id="ourmenu" class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Menu</span></h3>
-      <div  class="row row-md row-30">
-         <div *ngFor="let menu of menuList"class="col-sm-6 col-lg-4">
+      <div class="row row-md row-30">
+        <div *ngFor="let menu of menuList" class="col-sm-6 col-lg-4">
           <div class="oh-desktop">
             <!-- Services Terri-->
             <article class="services-terri wow slideInUp" (click)="getMenuDetail(menu)">
-         
+
               <div class="services-terri-figure"><img src='{{menu.imageUrl}}' alt='{{menu.id}}' />
               </div>
               <div class="services-terri-caption">
@@ -20,4 +20,3 @@
       </div>
     </div>
   </section>
-  
