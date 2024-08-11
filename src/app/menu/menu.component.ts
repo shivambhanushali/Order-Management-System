@@ -5,6 +5,7 @@ import { PathUrl } from '../../shared/constant/pathUrl';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { menuModel } from '../../shared/model/menu.model';
 import { CommonModule } from '@angular/common';
+import { AuthGuardService } from '../auth/auth-guard/auth-guard.service';
 @Component({
   selector: 'app-menu',
   standalone: true,

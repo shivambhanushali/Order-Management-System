@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, FormBuilder } 
 from '@angular/forms';
 import { MenudetailService } from '../../menudetail/menudetail.service';
+import { AuthGuardService } from '../../auth/auth-guard/auth-guard.service';
 @Component({
   selector: 'app-delete-menudetail',
   standalone: true,
@@ -29,6 +30,7 @@ import { MenudetailService } from '../../menudetail/menudetail.service';
     MatDialogClose,
     MatSelectModule,
     ReactiveFormsModule],
+    providers:[],
   templateUrl: './delete-menudetail.component.html',
   styleUrl: './delete-menudetail.component.scss'
 })

@@ -18,6 +18,7 @@ import { MenuService } from '../../menu/menu.service';
 import { menuModel } from '../../../shared/model/menu.model';
 import { MenudetailService } from '../../menudetail/menudetail.service';
 import { menuDetailModel } from '../../../shared/model/menudetail.model';
+import { AuthGuardService } from '../../auth/auth-guard/auth-guard.service';
 @Component({
   selector: 'app-add-menudetail',
   standalone: true,

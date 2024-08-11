@@ -19,6 +19,8 @@ import { MenuService } from '../../menu/menu.service';
 import { MenudetailService } from '../../menudetail/menudetail.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteMenudetailComponent } from '../delete-menudetail/delete-menudetail.component';
+import { AuthGuardService } from '../../auth/auth-guard/auth-guard.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-menudetail',
   standalone: true,
@@ -30,6 +32,7 @@ import { DeleteMenudetailComponent } from '../delete-menudetail/delete-menudetai
   providers: [
     { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: {} },
+    
   ],
   templateUrl: './admin-menudetail.component.html',
   styleUrl: './admin-menudetail.component.scss',
@@ -44,7 +47,7 @@ export class AdminMenudetailComponent {
   readonly dialog = inject(MatDialog);
   constructor(
     private menuService: MenuService, private menuDetailService: MenudetailService,
-    public dialogRef: MatDialogRef<AddMenudetailComponent>,
+    public dialogRef: MatDialogRef<AddMenudetailComponent>, private route : Router,
     @Inject(MAT_DIALOG_DATA) public dialogData: any){}
   openDialog(element: any =null): void {
     // console.log(element)
@@ -71,8 +74,10 @@ export class AdminMenudetailComponent {
       // console.log(res)
     })
   } 
-  getMenuTitle(id: any) {
-    console.log(id)
-    return "test"
+  logout() {
+    localStorage.clear();
+    this.route.navigate(['admin-login'])
+    
   }
+
 }

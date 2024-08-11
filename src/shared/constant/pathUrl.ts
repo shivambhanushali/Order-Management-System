@@ -8,4 +8,5 @@ export class PathUrl {
     getMenuDetailByMenuId =this.url+"menudetail/getmenudetailbymenuid/";
     addMenuData=this.url+"menudetail/adduser";
     deleteData=this.url+"menudetail/deletedata/";
+    signIn=this.url+"auth/login";
  }

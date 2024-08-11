@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MenudetailService } from './menudetail.service';
 import { PathUrl } from '../../shared/constant/pathUrl';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from '../auth/auth-guard/auth-guard.service';
 @Component({
   selector: 'app-menudetail',
   standalone: true,
@@ -32,7 +33,8 @@ export class MenudetailComponent {
     }
     console.log(this.header)
     this.menuDetailService.getId(param.id).subscribe((res: any) => {
-      this.menuDetailList = res
+      this.menuDetailList = res;
+      this.router.navigate(['admin-menudetail']);
       // console.log(this.menuDetailList)
     });
   }
